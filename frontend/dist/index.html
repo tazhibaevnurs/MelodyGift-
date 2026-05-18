@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#17212B">
+  <meta name="description" content="MelodyGift KG - AI-powered personalized music gifts for Kyrgyzstan">
+  <title>MelodyGift KG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body, #root {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #17212B 0%, #1A2332 50%, #0D1117 100%);
+      color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #8E44AD;
+      border-radius: 2px;
+    }
+    
+    /* Loading spinner */
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(142, 68, 173, 0.2);
+      border-top-color: #8E44AD;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Audio wave animation */
+    .audio-wave {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      height: 30px;
+    }
+    
+    .audio-wave span {
+      width: 3px;
+      background: linear-gradient(to top, #8E44AD, #F39C12);
+      border-radius: 3px;
+      animation: wave 1s ease-in-out infinite;
+    }
+    
+    .audio-wave span:nth-child(1) { animation-delay: 0s; height: 10px; }
+    .audio-wave span:nth-child(2) { animation-delay: 0.1s; height: 20px; }
+    .audio-wave span:nth-child(3) { animation-delay: 0.2s; height: 15px; }
+    .audio-wave span:nth-child(4) { animation-delay: 0.3s; height: 25px; }
+    .audio-wave span:nth-child(5) { animation-delay: 0.4s; height: 12px; }
+    
+    @keyframes wave {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(1.5); }
+    }
+    
+    /* Button styles */
+    .btn-primary {
+      background: linear-gradient(135deg, #8E44AD 0%, #9B59B6 100%);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+    }
+    
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Card styles */
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+    
+    /* Input styles */
+    .input-field {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .input-field:focus {
+      outline: none;
+      border-color: #8E44AD;
+      box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
+    }
+    
+    .input-field::-moz-placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .input-field::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+    
+    /* Pulse animation for credits */
+    .pulse-badge {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(243, 156, 18, 0); }
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-D8iYF1jQ.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DpeQNRYC.css">
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
